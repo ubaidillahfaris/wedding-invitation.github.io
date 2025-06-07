@@ -1,0 +1,193 @@
+.boquet {
+    position: fixed;
+    top: 30%;
+    z-index: 3;
+    left: 16%;
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    opacity: 0;
+    transform: scale(5); /* awal besar */
+    transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+}
+
+/* saat scroll masuk: scale normal + visible */
+.boquet.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* posisi kanan/kiri dan rotate */
+.boquet.right {
+    rotate: -20deg;
+    transform-origin: center;
+    /* biar transform tidak overwrite scale, kita gabungkan di JS */
+    /* nanti gabungkan translate + rotate + scale di JS */
+    z-index: 1;
+}
+
+.boquet.left {
+    rotate: 20deg;
+    transform-origin: center;
+    z-index: 1;
+}
+
+
+.boquet.reverse {
+    transform: translateY(-100px) scale(0.95);
+    opacity: 0;
+}
+
+
+
+
+/* wedding time animation */
+
+.wpo-wedding-time {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.wpo-wedding-time.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* groom & bride */
+.col.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 4s ease-out, transform 0.8s ease-out;
+}
+
+.col.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* couple */
+.couple-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.couple-image {
+  position: fixed;
+  top: 25vh;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/assets/images/webp/Garden-01-Couple-2-1.png');
+  z-index: 0;
+
+  opacity: 0;
+  transform: translateY(50px) scale(1.2);
+  transition: opacity 1s ease, transform 1.2s ease;
+}
+
+.couple-image.visible {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+}
+
+
+/* end of couple */
+
+
+/* lottie flower */
+#lottie-flower {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  will-change: transform, opacity;
+}
+
+#lottie-flower.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* end of lottie */
+
+
+@keyframes slideRight {
+    0% {
+        right: 50%;
+        opacity: 0;
+    }
+    100% {
+        right: -20%;
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        left: 50%;
+        opacity: 0;
+    }
+    100% {
+        left: -20%;
+        opacity: 1;
+    }
+}
+
+
+.z-index-1::before,
+.z-index-2::before,
+.z-index-3::before,
+.z-index-4::before,
+.z-index-5::before,
+.z-index-6::before,
+.z-index-7::before,
+.z-index-8::before,
+.z-index-9::before,
+.z-index-10::before {
+    position: relative;
+}
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.z-index-3 {
+    z-index: 3;
+}
+
+.z-index-4 {
+    z-index: 4;
+}
+
+.z-index-5 {
+    z-index: 5;
+}
+
+.z-index-6 {
+    z-index: 6;
+}
+
+.z-index-7 {
+    z-index: 7;
+}
+
+.z-index-8 {
+    z-index: 8;
+}
+
+.z-index-9 {
+    z-index: 9;
+}
+
+.z-index-10 {
+    z-index: 10;
+}
