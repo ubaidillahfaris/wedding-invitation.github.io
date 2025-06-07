@@ -1,28 +1,26 @@
 .boquet {
     position: fixed;
-    top: 30%;
-    z-index: 3;
-    left: 16%;
-    width: 300px;
-    height: 300px;
+    aspect-ratio: 1 / 1;
     background-size: cover;
     opacity: 0;
-    transform: scale(5); /* awal besar */
+    z-index: 1;
     transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+    top: 30vh;
+    left: 20vw;
+    width: 100vh;
+    height: 80vh;
+    transform: scale(2);
 }
 
-/* saat scroll masuk: scale normal + visible */
 .boquet.active {
     opacity: 1;
     transform: scale(1);
 }
 
-/* posisi kanan/kiri dan rotate */
+/* Rotasi kanan dan kiri */
 .boquet.right {
     rotate: -20deg;
     transform-origin: center;
-    /* biar transform tidak overwrite scale, kita gabungkan di JS */
-    /* nanti gabungkan translate + rotate + scale di JS */
     z-index: 1;
 }
 
@@ -30,6 +28,28 @@
     rotate: 20deg;
     transform-origin: center;
     z-index: 1;
+}
+
+/* ✅ Responsive: Perbaiki posisi dan ukuran di layar kecil */
+
+@media (max-width: 768px) {
+    .boquet {
+        top: 20vh;
+        left: 5vw;
+        width: 300px;
+        height: 300px;
+        transform: scale(4);
+    }
+}
+
+@media (max-width: 480px) {
+    .boquet {
+        top: 30%;
+        left: 16%;
+        width: 300px;
+        height: 200px;
+        transform: scale(3.5);
+    }
 }
 
 
@@ -58,43 +78,43 @@
 
 /* groom & bride */
 .col.slide-up {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 4s ease-out, transform 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 4s ease-out, transform 0.8s ease-out;
 }
 
 .col.slide-up.visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
 
 /* couple */
 .couple-image-wrapper {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .couple-image {
-  position: fixed;
-  top: 25vh;
-  left: 0;
-  width: 120%;
-  height: 120%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url('/assets/images/webp/Garden-01-Couple-2-1.png');
-  z-index: 0;
+    position: fixed;
+    top: 25vh;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/assets/images/webp/Garden-01-Couple-2-1.png');
+    z-index: 0;
 
-  opacity: 0;
-  transform: translateY(50px) scale(1.2);
-  transition: opacity 1s ease, transform 1.2s ease;
+    opacity: 0;
+    transform: translateY(50px) scale(1.2);
+    transition: opacity 1s ease, transform 1.2s ease;
 }
 
 .couple-image.visible {
-  opacity: 1;
-  transform: translateY(0px) scale(1);
+    opacity: 1;
+    transform: translateY(0px) scale(1);
 }
 
 
@@ -103,24 +123,91 @@
 
 /* lottie flower */
 #lottie-flower {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s ease-out;
-  will-change: transform, opacity;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+    will-change: transform, opacity;
 }
 
 #lottie-flower.visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
+
 /* end of lottie */
 
+
+/* atm card */
+.atm-card {
+    margin-inline: auto;
+    margin-bottom: 5%;
+    width: 320px;
+    height: 200px;
+    background: linear-gradient(135deg, #004d99, #66ccff);
+    color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+}
+
+.bank-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bank-info img {
+    height: 32px;
+    width: auto;
+}
+
+.bank-name {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.account-number {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+.account-number button {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.account-number button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.card-footer {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* end of atm */
 
 @keyframes slideRight {
     0% {
         right: 50%;
         opacity: 0;
     }
+
     100% {
         right: -20%;
         opacity: 1;
@@ -132,6 +219,7 @@
         left: 50%;
         opacity: 0;
     }
+
     100% {
         left: -20%;
         opacity: 1;

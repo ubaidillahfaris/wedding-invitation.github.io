@@ -198,3 +198,10 @@ function coupleGroomAndBrideHandler(){
 
     // observer.observe(target);
 }
+
+function copyRekening() {
+    const number = document.getElementById("rek-number").innerText.replace(/\s/g, '');
+    navigator.clipboard.writeText(number)
+        .then(() => alert("Nomor rekening disalin: " + number))
+        .catch(() => alert("Gagal menyalin nomor rekening"));
+}

@@ -1,7 +1,7 @@
 
   const music = document.getElementById('weddingMusic');
   const toggleBtn = document.getElementById('toggleMusic');
-  const icon = document.getElementById('musicIcon');
+  const text = document.getElementById('music-text');
 
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -17,9 +17,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 2000); // 2 detik delay
   });
 
-  function updateIcon(isPlaying) {
-    icon.src = isPlaying ? 'assets/icons/pause.svg' : 'assets/icons/play.svg';
-    icon.alt = isPlaying ? 'Pause' : 'Play';
+  function updateText(isPlaying) {
+    text.textContent = isPlaying ? 'Pause' : 'Play';
   }
 
   window.addEventListener('load', () => {
