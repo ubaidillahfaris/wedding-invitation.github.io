@@ -154,7 +154,9 @@
     font-family: 'Segoe UI', sans-serif;
     position: relative;
 }
-
+.rek-number {
+    color: white !important;
+}
 .bank-info {
     display: flex;
     align-items: center;
